@@ -26,5 +26,5 @@ class Conn:
 def create_db():
     with Conn(config.current_db_path) as db:
         with open("bot/db/queries/create_expenses.sql", "r") as f:
-            db.execute(f.read())
+            db.executescript(f.read())
             logger.debug(f"created expenses table in {config.current_db_path}")

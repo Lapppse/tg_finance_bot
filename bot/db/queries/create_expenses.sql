@@ -1,3 +1,5 @@
+PRAGMA encoding = "UTF-8"; 
+
 CREATE TABLE IF NOT EXISTS expenses (
 	user_id INTEGER NOT NULL,
 	money INTEGER NOT NULL,
