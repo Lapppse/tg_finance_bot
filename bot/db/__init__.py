@@ -3,6 +3,7 @@ __all__ = ("Conn", "create_db")
 import sqlite3
 
 from loguru import logger
+from utils import config
 
 
 class Conn:
@@ -26,4 +27,4 @@ def create_db():
     with Conn("bot/db/test.db") as db:
         with open("bot/db/queries/create_expenses.sql", "r") as f:
             db.execute(f.read())
-            logger.debug("created expenses table in db")
+            logger.debug(f"created expenses table in {config.current_db_path}")
