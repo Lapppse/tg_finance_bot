@@ -1,0 +1,4 @@
+aiogram
+loguru
+pydantic
+pydantic-settings
