@@ -1,4 +1,7 @@
+import asyncio
+
 import aiogram
+import handlers
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from db import create_db
@@ -10,6 +13,7 @@ bot = aiogram.Bot(
     default=DefaultBotProperties(parse_mode=ParseMode.HTML),
 )
 dp = aiogram.Dispatcher()
+dp.include_routers(handlers.input_router)
 
 
 async def start_bot():
@@ -17,3 +21,7 @@ async def start_bot():
     create_db()
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(start_bot())
