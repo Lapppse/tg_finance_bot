@@ -13,7 +13,7 @@ bot = aiogram.Bot(
     default=DefaultBotProperties(parse_mode=ParseMode.HTML),
 )
 dp = aiogram.Dispatcher()
-dp.include_routers(handlers.input_router)
+dp.include_routers(handlers.input_router, handlers.start_router)
 
 
 async def start_bot():
